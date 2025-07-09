@@ -20,7 +20,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 COPY requirements.txt .
 
 # 安装 Python 依赖
-RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip install --no-cache-dir -r requirements.txt
 
 # 复制项目代码
 COPY . .
@@ -33,7 +33,7 @@ RUN cd db && python createTable.py
 
 # 构建前端
 RUN cd sau_frontend && \
-    npm install --registry=https://registry.npmmirror.com && \
+    npm install && \
     npm run build
 
 # 创建必要的目录

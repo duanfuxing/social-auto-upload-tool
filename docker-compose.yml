@@ -2,7 +2,7 @@ version: '3.11'
 
 services:
   social-auto-upload:
-    build: .
+    image: catchoco/social-auto-upload-tool:latest
     container_name: social-auto-upload
     ports:
       - "5409:5409"
