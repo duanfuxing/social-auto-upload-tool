@@ -3,7 +3,7 @@ name: fuck
 on:
   push:
     paths:
-      - './Dockerfile'
+      - '../../Dockerfile'
       - '.github/workflows/deploy.yml'
 
 jobs:
