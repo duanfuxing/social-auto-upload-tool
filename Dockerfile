@@ -32,13 +32,16 @@ RUN cp conf.example.py conf.py
 RUN cd db && python createTable.py
 
 # 创建必要的目录
-RUN mkdir -p videoFile logs html
+RUN mkdir -p /app/videoFile /app/logs /app/html
 
 # 构建前端
-RUN cd sau_frontend && \
-    npm install && \
+WORKDIR /app/sau_frontend
+RUN npm install && \
     npm run build && \
-    cp -r ./dist ../html
+    cp -r dist /app/html/
+
+    
+WORKDIR /app
 
 # 设置权限
 RUN chmod +x *.sh
