@@ -32,14 +32,14 @@ RUN cp conf.example.py conf.py
 RUN cd db && python createTable.py
 
 # 创建必要的目录
-RUN mkdir -p /app/videoFile /app/logs /app/html
+RUN mkdir -p videoFile logs html/dist
 
 # 构建前端
 WORKDIR /app/sau_frontend
 RUN npm install && \
     npm run build && \
     cp -r dist /app/html/
-    
+
 WORKDIR /app
 
 # 设置权限
