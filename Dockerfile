@@ -31,13 +31,14 @@ RUN cp conf.example.py conf.py
 # 初始化数据库
 RUN cd db && python createTable.py
 
+# 创建必要的目录
+RUN mkdir -p videoFile logs html
+
 # 构建前端
 RUN cd sau_frontend && \
     npm install && \
-    npm run build
-
-# 创建必要的目录
-RUN mkdir -p videoFile logs html
+    npm run build && \
+    cp -r ./dist ../html
 
 # 设置权限
 RUN chmod +x *.sh
