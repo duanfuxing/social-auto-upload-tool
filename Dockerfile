@@ -39,7 +39,6 @@ WORKDIR /app/sau_frontend
 RUN npm install && \
     npm run build && \
     cp -r dist /app/html/
-
     
 WORKDIR /app
 
